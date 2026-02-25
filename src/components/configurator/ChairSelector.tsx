@@ -8,29 +8,35 @@ export default function ChairSelector() {
 
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-3">Choose Chair</h2>
+      <p
+        className="text-xs uppercase tracking-widest mb-3"
+        style={{ color: "var(--color-bark-600)", fontWeight: 600 }}
+      >
+        Chair
+      </p>
 
-      <div className="space-y-3">
-        {chairs.map((c) => (
-          <button
-            key={c.id}
-            onClick={() => setChair(c)}
-            className={`
-              w-full text-left p-3 rounded-xl border transition
-              hover:shadow-md hover:scale-[1.02]
-              ${
-                chair?.id === c.id
-                  ? "bg-black text-white border-black"
-                  : "bg-neutral-50 border-neutral-200"
-              }
-            `}
-          >
-            <div className="font-semibold">{c.name}</div>
-            <div className="text-sm opacity-70">
-              ${c.price}/month
-            </div>
-          </button>
-        ))}
+      <div className="flex flex-col gap-2">
+        {chairs.map((c) => {
+          const selected = chair?.id === c.id
+          return (
+            <button
+              key={c.id}
+              onClick={() => setChair(c)}
+              className="item-card w-full text-left rounded-xl px-4 py-3 flex justify-between items-center"
+              style={{
+                background: selected ? "var(--color-bark-900)" : "var(--color-sand-50)",
+                border: `1.5px solid ${selected ? "var(--color-bark-900)" : "var(--color-sand-200)"}`,
+                color: selected ? "white" : "var(--color-bark-900)",
+                boxShadow: selected ? "0 4px 16px rgba(42,31,21,0.18)" : "none",
+              }}
+            >
+              <span style={{ fontWeight: 500, fontSize: "14px" }}>{c.name}</span>
+              <span style={{ fontSize: "12px", opacity: 0.65 }}>
+                ${c.price}/mo
+              </span>
+            </button>
+          )
+        })}
       </div>
     </div>
   )

@@ -1,2 +1,74 @@
 @import "tailwindcss";
 
+:root {
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-dm-serif);
+
+  --color-sand-50: #faf8f5;
+  --color-sand-100: #f3efe8;
+  --color-sand-200: #e8e0d3;
+  --color-sand-300: #d6c9b8;
+  --color-bark-600: #6b5744;
+  --color-bark-700: #513f30;
+  --color-bark-900: #2a1f15;
+  --color-moss: #4a6741;
+  --color-sky: #6b9bb8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  background-color: var(--color-sand-50);
+  color: var(--color-bark-900);
+}
+
+/* Selector card hover lift */
+.item-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.item-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Canvas scene */
+.workspace-canvas {
+  background: linear-gradient(
+    175deg,
+    #e8ddd1 0%,
+    #d4c5b0 45%,
+    #bfaa93 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floor plane */
+.canvas-floor {
+  background: linear-gradient(to bottom, #c9b49a, #b8a08a);
+}
+
+/* Texture grain overlay */
+.canvas-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 50;
+  mix-blend-mode: overlay;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-sand-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand-300);
+  border-radius: 3px;
+}
