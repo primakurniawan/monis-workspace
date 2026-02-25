@@ -73,7 +73,7 @@ export default function WorkspaceCanvas() {
             style={{
               position: "absolute",
               bottom: "34%",   /* sits on floor */
-              left: "50%",
+              left: "45%",
               transform: "translateX(-20%)", /* offset right so it peeks from behind desk */
               width: "22%",    /* smaller — it's receding behind the desk */
               zIndex: 10,      /* behind desk (z:25) */
@@ -124,10 +124,10 @@ export default function WorkspaceCanvas() {
             transition={{ duration: 0.3 }}
             style={{
               position: "absolute",
-              bottom: "55%",
+              bottom: "57%",
               left: "25%",
               transform: "translateX(-50%)",
-              width: "26%",
+              width: "20%",
               zIndex: 20,
             }}
           >
@@ -150,8 +150,8 @@ export default function WorkspaceCanvas() {
             transition={{ duration: 0.25 }}
             style={{
               position: "absolute",
-              bottom: "56%",
-              left: "75%",
+              bottom: "57%",
+              left: "70%",
               width: "9%",
               zIndex: 22,
             }}
