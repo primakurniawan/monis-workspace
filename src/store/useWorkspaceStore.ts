@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { WorkspaceState, Desk, Chair, Accessory } from "@/types/workspace"
+import { WorkspaceState, Desk, Chair, Accessory } from "../types/workspace"
 
 type Store = WorkspaceState & {
   setDesk: (desk: Desk) => void

@@ -1,7 +1,7 @@
 "use client"
 
-import { desks } from "@/data/products"
-import { useWorkspaceStore } from "@/store/useWorkspaceStore"
+import { desks } from "../../data/products"
+import { useWorkspaceStore } from "../../store/useWorkspaceStore"
 
 export default function DeskSelector() {
   const { setDesk, desk } = useWorkspaceStore()
@@ -14,11 +14,17 @@ export default function DeskSelector() {
           <button
             key={d.id}
             onClick={() => setDesk(d)}
-            className={`p-2 border rounded w-full ${
-              desk?.id === d.id ? "bg-black text-white" : ""
-            }`}
+            className={`
+    w-full text-left p-3 rounded-xl border transition
+    hover:shadow-md hover:scale-[1.02]
+    ${desk?.id === d.id
+                ? "bg-black text-white border-black"
+                : "bg-neutral-50 border-neutral-200"
+              }
+  `}
           >
-            {d.name} (${d.price}/mo)
+            <div className="font-semibold">{d.name}</div>
+            <div className="text-sms">${d.price}/mo</div>
           </button>
         ))}
       </div>
